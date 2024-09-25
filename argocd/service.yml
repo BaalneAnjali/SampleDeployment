@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: tomcat-service
 spec:
-  type: NodePort  # Add this line to specify the service type
+ # type: NodePort  # Add this line to specify the service type
   selector:
     app: tomcat
   ports:
