@@ -10,5 +10,5 @@ spec:
     - protocol: TCP
       port: 80         # Port exposed by the service
       targetPort: 8080 # Port on the container
-      nodePort: 34455  # Node port (optional, if you want to specify it)
+      nodePort: 31122  # Node port (optional, if you want to specify it)
 
