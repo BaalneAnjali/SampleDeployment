@@ -7,5 +7,6 @@ spec:
     app: tomcat
   ports:
     - protocol: TCP
+      nodeport: 34455
       port: 80
       targetPort: 8080
