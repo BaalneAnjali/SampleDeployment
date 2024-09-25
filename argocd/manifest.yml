@@ -2,11 +2,12 @@ apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: tomcat-deployment
+  namespace: my-namespace  # Add your desired namespace here
 spec:
   selector:
     matchLabels:
       app: tomcat
-  replicas: 3 # tells deployment to run 2 pods matching the template
+  replicas: 2 # tells deployment to run 3 pods matching the template
   template:
     metadata:
       labels:
