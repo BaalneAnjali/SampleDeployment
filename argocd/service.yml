@@ -1,13 +1,20 @@
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
 metadata:
-  name: my-service
+  name: tomcat-deployment
+  namespace: my-namespace  # Add your desired namespace here
 spec:
   selector:
-          app: tomcat
-  type: NodePort
-  ports:
-    - protocol: TCP
-      nodePort: 31122
-      port: 80
-      targetPort: 8080
+    matchLabels:
+      app: tomcat
+  replicas: 3 # tells deployment to run 3 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: tomcat
+    spec:
+      containers:
+      - name: tomcat
+        image: baalneanjali/tomcatsamplecode:1.0
+        ports:
+        - containerPort: 8080
