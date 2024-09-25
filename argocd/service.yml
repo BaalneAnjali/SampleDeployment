@@ -1,12 +1,14 @@
-apiVersion: v1
+piVersion: v1
 kind: Service
 metadata:
   name: tomcat-service
 spec:
+  type: NodePort  # Add this line to specify the service type
   selector:
     app: tomcat
   ports:
     - protocol: TCP
-      nodeport: 34455
-      port: 80
-      targetPort: 8080
+      port: 80         # Port exposed by the service
+      targetPort: 8080 # Port on the container
+      nodePort: 34455  # Node port (optional, if you want to specify it)
+
